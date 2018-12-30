@@ -19,14 +19,14 @@ python -m flask run
   Use a production WSGI server instead.
 * Debug mode: off
 
-Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&ref_=adv_prv . 
-Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=51&ref_=adv_nxt . 
-Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=101&ref_=adv_nxt . 
-Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=151&ref_=adv_nxt . 
+Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&ref_=adv_prv
+Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=51&ref_=adv_nxt
+Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=101&ref_=adv_nxt
+Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=151&ref_=adv_nxt
 ......  
 ......  
 ......  
-No. of listings: 1000 . 
+No. of listings: 1000
 Getting movie details....  
 Crawling https://www.imdb.com/title/tt0085959/?ref_=adv_li_tt  
 Crawling https://www.imdb.com/title/tt3521164/?ref_=adv_li_tt  
