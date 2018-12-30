@@ -14,11 +14,12 @@ export FLASK_APP=crawler.py
 
 python -m flask run
 
- * Serving Flask app "crawler.py"
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: off
+* Serving Flask app "crawler.py"
+* Environment: production
+  WARNING: Do not use the development server in a production environment.
+  Use a production WSGI server instead.
+* Debug mode: off
+
 Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&ref_=adv_prv
 Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=51&ref_=adv_nxt
 Crawling https://www.imdb.com/search/title?groups=top_1000&view=simple&sort=user_rating,desc&start=101&ref_=adv_nxt
