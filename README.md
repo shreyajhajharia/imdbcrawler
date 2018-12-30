@@ -12,7 +12,7 @@ Run:
 
 export FLASK_APP=crawler.py  
 python -m flask run
-
+```
 * Serving Flask app "crawler.py"
 * Environment: production
   WARNING: Do not use the development server in a production environment.
@@ -38,7 +38,8 @@ Crawling https://www.imdb.com/title/tt0068327/?ref_=adv_li_tt
 Crawling https://www.imdb.com/title/tt0081398/?ref_=adv_li_tt  
 Crawling https://www.imdb.com/title/tt0373074/?ref_=adv_li_tt  
 DONE  
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)  
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ ```
  
  Search API call:
  
