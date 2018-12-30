@@ -10,7 +10,7 @@ Pre-requisites:
 
 Run:
 
-export FLASK_APP=crawler.py 
+export FLASK_APP=crawler.py
 python -m flask run
 
  * Serving Flask app "crawler.py"
