@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28600\viewh15460\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ASSUMPTIONS:\
+\
+- The query string is a list of words separated by spaces\
+\
+Why? : Due to the nature of the example in the assignments, and the type of information stored and searched for is primarily strings\
+The search query is not specific to what in the database is being looked for e.g cast or director, as long as the word associates to a movie in some way\
+\
+- Information extracted:\
+	- Movie Name\
+	- Cast (main cast)\
+	- Directors\
+	- Writers\
+	- Genre\
+	- Rating\
+	- Release Year\
+       No information related to the plot, or the entire cast and crew\
+\
+Why? : This is not so much of an assumption but the parameters I thought makes sense at the very basic. Apart from the movie name, director, looking for Genre helps us query for a particular genre (comedy) or a group of them (romance comedy)\
+Release Year helps querying for all movies release in a particular year. The reason for looking for only main cast was one to limit scope but also when searching it would be more intuitive to look for the main cast of a movie than the entire crew. In that case,  once we have that information it would involve ranking and relevance making sure director or main actor gets preference for a search word over someone in the broader cast with the same name or surname.\
+\
+- No range queries (Eg. >=7 for rating or >=2015 for release year)\
+\
+Why? - The data structure is indexed now to look for words and return the intersection as the result. Ranges would 1. Require a different index to look for and 2. Reading the query would have to change. This would be a good next step for this problem.\
+Basically, dealing with any such numeric data. Though currently a query for a particular release year would give desired results.\
+\
+\
+IMPROVISATIONS:\
+\
+Software Architecture:\
+\
+1. Separate out the crawler, and probably have it running in the background updating the data in regular intervals.\
+2. Have a search service to take care of the queries and more complicated ones as well\
+3. Store the data in a database, instead of in-memory data structure\
+4. Create multiple indexes for the data in-order to perform various types of queries\
+5. An API to probably do perform actions other than search, having scope for a different API to be exposed if backend does not need to be modified\
+The API could be used by other such crawlers as well.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Scale:\
+\
+1. Running multiple instances of the crawler, so each can process a part of the data\
+2. Having a master or scheduler that will actually send the links to the workers to crawl and send the data back\
+3. Use a load balancer and multiple workers that support the search API to handle high volume of search queries\
+4. Data Replication or Data Sharding to distribute the data storage and make the database querying faster\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Performance: This goes in-hand with the software architecture and scale.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 1. Currently the crawling take roughly 15-20 mins. Scaling the crawler would reduce that time significantly\
+2. The look up time for each word in the query currently is O(1), but the construction of the indexes if the O(number of words in the information extracted) using memory.\
+Since the search query has partial names or details, either during search time or conuctrustion time we have to read individual words from names or the move name itself.\
+3. Sharding will help make queries to different databases and hence making the query faster\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Quality:\
+\
+1. There could be reference IDs to movies stored in the list for each key instead of the movie names themselves. \
+2. I mostly made mnemonic variable and task related function names, but would probably change some if not easily understood (some generic ones that I used)\
+3. Check if anything else can be modularized or code that can be re-used\
+\
+\
+\
+}
