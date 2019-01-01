@@ -46,7 +46,8 @@ DONE
  curl -X GET http://127.0.0.1:5000/movies?query=spielberg  
  curl -X GET http://127.0.0.1:5000/movies?query=spielberg%20hanks  
  curl -X GET http://127.0.0.1:5000/movies?query=comedy  
- curl -X GET http://127.0.0.1:5000/movies?query=sci-fi%20thriller  
+ curl -X GET http://127.0.0.1:5000/movies?query=sci-fi%20thriller 
+ curl -X GET http://127.0.0.1:5000/movies?query=2000
  
  
 
